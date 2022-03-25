@@ -26,8 +26,12 @@ const SignIn = () => {
       });
       const token = await res.json();
       console.log(token)
-      localStorage.setItem("token", token["access"]);
-      navigate("/viewboard")
+      if(token["detail"]){
+        console.log("Not found")
+      }
+      else
+      {localStorage.setItem("token", token["access"]);
+      navigate("/homepage")}
     }
   };
 
